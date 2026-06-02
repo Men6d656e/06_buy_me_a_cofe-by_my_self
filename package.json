@@ -1,0 +1,27 @@
+{
+  "name": "06_buy_me_a_cofe-by_my_self",
+  "version": "1.0.0",
+  "description": "Just used the serve package to serve the frontend without any instalation.",
+  "homepage": "https://github.com/Men6d656e/06_buy_me_a_cofe-by_my_self#readme",
+  "bugs": {
+    "url": "https://github.com/Men6d656e/06_buy_me_a_cofe-by_my_self/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Men6d656e/06_buy_me_a_cofe-by_my_self.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "serve": "^14.2.6"
+  }
+}

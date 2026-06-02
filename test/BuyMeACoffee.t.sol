@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: SEE LICENSE IN LICENSE
 pragma solidity ^0.8.20;
 
-import {Test, console} from "forge-std/Test.sol";
+import {Test} from "forge-std/Test.sol";
 import {BuyMeACoffee} from "../src/BuyMeACoffee.sol";
 
 contract BuyMeACoffeeTest is Test {

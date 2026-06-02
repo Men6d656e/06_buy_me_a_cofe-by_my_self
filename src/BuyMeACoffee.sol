@@ -56,7 +56,14 @@ contract BuyMeACoffee {
         if (msg.value < 0.001 ether) {
             revert InsufficientEth();
         }
-        memos.push(Memo(msg.sender, block.timestamp, _name, _message));
+        memos.push(
+            Memo({
+                from: msg.sender,
+                timestamp: block.timestamp,
+                name: _name,
+                message: _message
+            })
+        );
 
         emit NewMemo(msg.sender, block.timestamp, _name, _message);
     }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Me a Coffee ☕</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="bg-yellow-100 text-gray-900 font-sans antialiased min-h-screen flex flex-col items-center py-10 px-4">
+
+    <!-- Header -->
+    <header class="w-full max-w-2xl flex justify-between items-center mb-10 neo-card bg-white p-4">
+        <h1 class="text-3xl font-black uppercase tracking-tight">☕ Buy Me A Coffee</h1>
+        <button id="connectWalletBtn" class="neo-btn bg-indigo-400 text-black font-bold py-2 px-4 rounded-none uppercase">
+            Connect Wallet
+        </button>
+    </header>
+
+    <!-- Main Form -->
+    <main class="w-full max-w-2xl flex flex-col gap-8">
+        
+        <!-- Coffee Form -->
+        <section class="neo-card bg-white p-6 relative">
+            <div class="absolute -top-4 -left-4 bg-green-400 border-4 border-black font-bold uppercase px-3 py-1 transform -rotate-3 neo-shadow-sm">
+                Send a Tip!
+            </div>
+            <form id="coffeeForm" class="flex flex-col gap-4 mt-4">
+                <div class="flex flex-col">
+                    <label class="font-bold uppercase mb-1" for="nameInput">Name</label>
+                    <input type="text" id="nameInput" placeholder="Your Name" required class="neo-input p-3" />
+                </div>
+                <div class="flex flex-col">
+                    <label class="font-bold uppercase mb-1" for="messageInput">Message</label>
+                    <textarea id="messageInput" rows="3" placeholder="Leave a sweet message..." required class="neo-input p-3"></textarea>
+                </div>
+                <button type="submit" id="buyCoffeeBtn" class="neo-btn bg-yellow-400 text-black font-black text-lg py-3 mt-2 uppercase transition-transform hover:-translate-y-1">
+                    💸 Buy 1 Coffee (0.001 ETH)
+                </button>
+            </form>
+        </section>
+
+        <!-- Admin Section (Hidden by default) -->
+        <section id="adminSection" class="neo-card bg-red-400 p-6 hidden">
+            <h2 class="text-2xl font-black uppercase mb-2 text-white border-black" style="text-shadow: 2px 2px 0 #000;">Admin Zone 🚨</h2>
+            <p class="text-black font-bold mb-4 bg-white inline-block p-1 border-2 border-black">You are the owner. You can withdraw the tips.</p>
+            <button id="withdrawBtn" class="neo-btn bg-white text-black font-black py-2 px-6 uppercase w-full">
+                💰 Withdraw Tips
+            </button>
+        </section>
+
+        <!-- Memos Feed -->
+        <section class="flex flex-col gap-4">
+            <h2 class="text-2xl font-black uppercase mb-2 bg-purple-400 inline-block p-2 border-4 border-black self-start neo-shadow-sm transform -rotate-1 text-white" style="text-shadow: 2px 2px 0 #000;">
+                Recent Memos 📜
+            </h2>
+            <div id="memosContainer" class="flex flex-col gap-4">
+                <!-- Memos will be injected here -->
+                <div class="neo-memo-card flex flex-col gap-2 opacity-50">
+                    <p class="italic text-center font-bold">No memos yet. Be the first!</p>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- External libs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.12.0/ethers.umd.min.js"></script>
+    <script type="module" src="./app.js"></script>
+</body>
+</html>
