@@ -1,3 +1,4 @@
+-include .env
 .PHONY: all build test anvil deploy-anvil deploy-sepolia sync-abi serve-node serve-python setup clean clean-all
 
 setup:
@@ -32,8 +33,14 @@ deploy-anvil: sync-abi
 deploy-sepolia: sync-abi
 	@echo "Deploying to Sepolia..."
 	@if [ -z "$(SEPOLIA_RPC_URL)" ]; then echo "SEPOLIA_RPC_URL is not set"; exit 1; fi
-	@if [ -z "$(PRIVATE_KEY)" ]; then echo "PRIVATE_KEY is not set"; exit 1; fi
-	forge script script/Deploy.s.sol:Deploy --rpc-url $(SEPOLIA_RPC_URL) --private-key $(PRIVATE_KEY) --broadcast
+	@if [ -z "$(ETHERSCAN_API_KEY)" ]; then echo "Error: ETHERSCAN_API_KEY is not set in .env"; exit 1; fi
+	forge script script/Deploy.s.sol:Deploy \
+		--rpc-url $(SEPOLIA_RPC_URL) \
+		--broadcast \
+		--interactives 1 \
+		--verify \
+		--etherscan-api-key $(ETHERSCAN_API_KEY) \
+		-vvvv
 
 serve-node:
 	./node_modules/.bin/serve frontend
