@@ -15,7 +15,7 @@ contract Deploy is Script {
         vm.stopBroadcast();
 
         // Automatic Sync
-        string memory constantsDir = "./frontend/Contracts";
+        string memory constantsDir = "./frontend/constants";
         vm.createDir(constantsDir, true);
 
         string memory filePath = string.concat(
