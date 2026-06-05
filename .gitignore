@@ -19,7 +19,7 @@ node_modules/
 npm-debug.log
 
 # Auto-generated frontend constants (Addresses and ABIs)
-frontend/constants/contractAddress.js
+# frontend/constants/contractAddress.js
 frontend/constants/BuyMeACoffee.json
 
 # OS specific
